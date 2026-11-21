@@ -1,0 +1,105 @@
+;;-*-Lisp-*-
+(in-package goal)
+;; lt-checkpoint.gc -- shared code of OpenGOAL Level Tools (written by the addon).
+;; lt-checkpoint: a checkpoint's trigger (Trigger option). Sets its continue point
+;; when Jak enters its sphere radius or its convex volume, then re-arms on exit.
+;; Compiled once (game.gp) and loaded with the game (dgos/game.gd).
+
+;; lt-point-in-planes? -- convex half-space test shared by all trigger volumes.
+;; Planes come from the 'vol res-lump (vector-vol): outward unit normals,
+;; distance pre-scaled to internal units by the build. A point is inside iff
+;; dot(N,P) - w <= 0 for EVERY plane. Zero planes -> not inside.
+(defun lt-point-in-planes? ((planes (inline-array vector)) (num-planes int) (pt vector))
+  (if (zero? num-planes)
+    #f
+    (let ((inside #t))
+      (dotimes (i num-planes)
+        (let ((pl (-> planes i)))
+          (if (< 0.0 (- (+ (* (-> pt x) (-> pl x))
+                           (* (-> pt y) (-> pl y))
+                           (* (-> pt z) (-> pl z)))
+                        (-> pl w)))
+            (set! inside #f))))
+      inside)))
+
+;; lt-checkpoint: sets continue point when Jak enters. Two modes:
+;; convex volume (quote vol) planes (has-volume = 1) or sphere radius (default).
+;; After firing it waits for exit, then re-arms.
+(deftype lt-checkpoint (process-drawable)
+  ((cp-name     string)
+   (cull-radius float)
+   (radius      float)
+   (use-vol     symbol)
+   (was-near    symbol)
+   (num-planes  int32)
+   (planes      (inline-array vector)))
+  :heap-base #x70
+  (:states lt-checkpoint-active lt-checkpoint-wait-exit))
+
+(defstate lt-checkpoint-wait-exit (lt-checkpoint)
+  :code
+  (behavior ()
+    (loop
+      (when (and *target* (zero? (mod (-> *display* base-frame-counter) 4)))
+        (let* ((pos  (-> *target* control trans))
+               (dx   (- (-> pos x) (-> self root trans x)))
+               (dy   (- (-> pos y) (-> self root trans y)))
+               (dz   (- (-> pos z) (-> self root trans z)))
+               (cr   (-> self cull-radius))
+               (still-inside (and
+                 (< (+ (* dx dx) (* dy dy) (* dz dz)) (* cr cr))
+                 (if (-> self use-vol)
+                   (lt-point-in-planes? (-> self planes) (-> self num-planes) pos)
+                   (let ((r (-> self radius)))
+                     (< (+ (* dx dx) (* dy dy) (* dz dz)) (* r r)))))))
+          (when (not still-inside)
+            (format 0 "[lt-checkpoint] ~A re-armed~%" (-> self cp-name))
+            (go lt-checkpoint-active))))
+      (suspend))))
+
+(defstate lt-checkpoint-active (lt-checkpoint)
+  :code
+  (behavior ()
+    (loop
+      (when (and *target* (zero? (mod (-> *display* base-frame-counter) 4)))
+        (let* ((pos  (-> *target* control trans))
+               (dx   (- (-> pos x) (-> self root trans x)))
+               (dy   (- (-> pos y) (-> self root trans y)))
+               (dz   (- (-> pos z) (-> self root trans z)))
+               (cr   (-> self cull-radius))
+               (near (< (+ (* dx dx) (* dy dy) (* dz dz)) (* cr cr)))
+               (inside (and near
+                 (if (-> self use-vol)
+                   (lt-point-in-planes? (-> self planes) (-> self num-planes) pos)
+                   (let ((r (-> self radius)))
+                     (< (+ (* dx dx) (* dy dy) (* dz dz)) (* r r)))))))
+          (set! (-> self was-near) near)
+          (when inside
+            (format 0 "[lt-checkpoint] fired -> ~A~%" (-> self cp-name))
+            (set-continue! *game-info* (-> self cp-name))
+            (go lt-checkpoint-wait-exit))))
+      (suspend))))
+
+(defmethod init-from-entity! ((this lt-checkpoint) (arg0 entity-actor))
+  (set! (-> this root) (new (quote process) (quote trsqv)))
+  (process-drawable-from-entity! this arg0)
+  (set! (-> this cp-name)  (res-lump-struct arg0 (quote continue-name) string))
+  (set! (-> this radius)   (res-lump-float  arg0 (quote radius) :default 12288.0))
+  (set! (-> this use-vol)  (!= 0 (the int (res-lump-value arg0 (quote has-volume) uint128))))
+  (set! (-> this was-near) #f)
+  (let ((tag (new (quote static) (quote res-tag))))
+    (let ((data (res-lump-data arg0 (quote vol) (inline-array vector) :tag-ptr (& tag))))
+      (cond
+        (data
+         (set! (-> this planes) (the-as (inline-array vector) data))
+         (set! (-> this num-planes) (the-as int (-> tag elt-count))))
+        (else
+         (set! (-> this planes) (the-as (inline-array vector) #f))
+         (set! (-> this num-planes) 0)))))
+  (set! (-> this cull-radius)
+    (if (-> this use-vol)
+      (res-lump-float arg0 (quote cull-radius) :default 122880.0)
+      (* (-> this radius) 1.2)))
+  (format 0 "[lt-checkpoint] armed: ~A~%" (-> this cp-name))
+  (go lt-checkpoint-active)
+  (none))

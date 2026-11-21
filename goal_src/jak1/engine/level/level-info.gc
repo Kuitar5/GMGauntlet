@@ -2469,6 +2469,47 @@
             default-level))
 
 ;;;;;;;;; CUSTOM LEVELS
+(define gmgauntlet
+  (new 'static 'level-load-info
+       :index 100
+       :name 'gmgauntlet
+       :visname 'gmgauntlet-vis
+       :nickname 'gmg
+       :packages '()
+       :sound-banks '()
+       :music-bank #f
+       :ambient-sounds '()
+       :mood '*village1-mood*
+       :mood-func 'update-mood-village1
+       :ocean #f
+       :sky #f
+       :sun-fade 1.0
+       :continues
+       '((new 'static 'continue-point
+             :name "gmgauntlet-start"
+             :level 'gmgauntlet
+             :trans (new 'static 'vector :x (meters 1397.0237) :y (meters 0.0000) :z (meters 596.2606) :w 1.0)
+             :quat (new 'static 'quaternion :x 0.0 :y 0.0 :z 0.0 :w 1.0)
+             :camera-trans (new 'static 'vector :x (meters 1397.0237) :y (meters 4.0000) :z (meters 596.2606) :w 1.0)
+             :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
+             :load-commands '()
+             :vis-nick 'gmg
+             :lev0 'gmgauntlet
+             :disp0 'display
+             :lev1 #f
+             :disp1 #f))
+       :tasks '()
+       :priority 100
+       :load-commands '()
+       :alt-load-commands '()
+       :bsp-mask #xffffffffffffffff
+       :bsphere (new 'static 'sphere :x 5722209.1 :y 8192.0 :z 2442283.4 :w 270336.0)
+       :bottom-height (meters -20.0)
+       :run-packages '()
+       :wait-for-load #t))
+
+(cons! *level-load-list* 'gmgauntlet)
+
 (define test-zone
   (new 'static
        'level-load-info

@@ -1,0 +1,34 @@
+;;-*-Lisp-*-
+(in-package goal)
+;; lt-nav-mesh.gc -- shared code of OpenGOAL Level Tools (written by the addon).
+;; custom-nav nav-meshes, the same way as The Forgotten Lands' tfl-nav-mesh.gc:
+;; each level's <level>-nav.gc defines its meshes and adds them to
+;; *custom-nav-list*; an actor's 'custom-nav symbol lump picks one at birth.
+
+(define *custom-nav-list* '())
+
+(defun custom-nav<-name ((nav-name symbol))
+  (dotimes (i (length *custom-nav-list*))
+    (let* ((map (the pair (ref *custom-nav-list* i)))
+           (name (the symbol (car map)))
+           (mesh (the symbol (cadr map))))
+      (when (= name nav-name)
+        (return (the nav-mesh (-> mesh value))))))
+  (the nav-mesh #f))
+
+(defun lt-custom-nav-setup ((e entity-actor))
+  "Called from entity-actor birth!: the actor's custom-nav mesh, then the nav login."
+  (let ((name (res-lump-struct e 'custom-nav symbol)))
+    (when name
+      (let ((nav (custom-nav<-name name)))
+        (cond
+          ((and nav (type-type? (-> (the basic nav) type) nav-mesh))
+           ;; the actor that sets spheres resets the mesh's old ones (like TFL)
+           (when (res-lump-struct e 'nav-mesh-sphere (inline-array nav-sphere))
+             (set! (-> nav static-sphere) (the (inline-array nav-sphere) 0))
+             (set! (-> nav static-sphere-count) 0))
+           (set! (-> e nav-mesh) nav)
+           (entity-nav-login e))
+          (else
+           (format 0 "ERROR: custom-nav ~A: no nav-mesh with that name (is its level's -nav.gc built?)~%" name))))))
+  (none))

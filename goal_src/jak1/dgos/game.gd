@@ -371,4 +371,7 @@
   ;; keep blocking-plane stuff loaded
   "blocking-plane.o"
   "ef-plane-ag.go"
+  "lt-checkpoint.o" ;; og-level-tools
+  "lt-task-trigger.o" ;; og-level-tools
+  "lt-nav-mesh.o" ;; og-level-tools
  ))

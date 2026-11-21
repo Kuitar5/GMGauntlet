@@ -1658,6 +1658,10 @@
 ;; - force-run: when #t, always forces a rebuild of the level instead of checking the "last modified" timestamp.
 ;; - gen-fr3: when #f, does not generate the .fr3 file for the level. useful for temporarily skipping the slow fr3 build process when
 ;; there's many custom levels that include extra art groups.
+(build-custom-level "gmgauntlet")
+(custom-level-cgo "GMG.DGO" "gmgauntlet/gmg.gd")
+(goal-src "levels/gmgauntlet/gmgauntlet-obs.gc" "process-drawable")
+
 (build-custom-level "test-zone")
 ;; the DGO file
 (custom-level-cgo "TSZ.DGO" "test-zone/testzone.gd")
@@ -2143,6 +2147,9 @@
 (goal-src "levels/common/on-off-block.gc" "process-drawable" "basebutton")
 
 
+(goal-src "levels/level-tools/lt-checkpoint.gc" "process-drawable") ; og-level-tools
+(goal-src "levels/level-tools/lt-task-trigger.gc" "process-drawable" "task-control" "lt-checkpoint") ; og-level-tools
+(goal-src "levels/level-tools/lt-nav-mesh.gc" "process-drawable") ; og-level-tools
 (group-list "all-code"
   `(,@(reverse *all-gc*))
   )
