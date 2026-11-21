@@ -8,7 +8,9 @@
   "automatic_wall_angle": 45.0,
   "double_sided_collide": false,
   "base_id": 10000,
-  "art_groups": [],
+  "art_groups": [
+    "race-ring-ag"
+  ],
   "custom_models": [],
   "textures": [],
   "tex_remap": "none",
@@ -89,6 +91,332 @@
       ],
       "lump": {
         "name": "gmg-money-2"
+      }
+    },
+    {
+      "trans": [
+        1387.3081,
+        4.4038,
+        595.2338
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1387.3081,
+        4.4038,
+        595.2338,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-0",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-1"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1387.1281,
+        4.4038,
+        604.42
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1387.1281,
+        4.4038,
+        604.42,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-1",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-2"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1388.3872,
+        7.4882,
+        613.5203
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1388.3872,
+        7.4882,
+        613.5203,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-2",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-1"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-3"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1388.3386,
+        11.8068,
+        619.5173
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1388.3386,
+        11.8068,
+        619.5173,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-3",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-2"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-4"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1388.3977,
+        14.0932,
+        626.861
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1388.3977,
+        14.0932,
+        626.861,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-4",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-3"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-5"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1394.5918,
+        14.0932,
+        626.6195
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1394.5918,
+        14.0932,
+        626.6195,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-5",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-4"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "next-actor": [
+          "string",
+          "gmg-race-ring-0-6"
+        ]
+      }
+    },
+    {
+      "trans": [
+        1412.1979,
+        14.2589,
+        620.8148
+      ],
+      "etype": "gmgauntlet-race-ring",
+      "game_task": "(game-task training-gimmie)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1412.1979,
+        14.2589,
+        620.8148,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-race-ring-0-6",
+        "timeout": [
+          "float",
+          8.0
+        ],
+        "ring-color": [
+          "float",
+          1.0,
+          0.0,
+          1.0
+        ],
+        "prev-actor": [
+          "string",
+          "gmg-race-ring-0-5"
+        ],
+        "alt-actor": [
+          "string",
+          "gmg-race-ring-0-0"
+        ],
+        "movie-pos": [
+          "movie-pos",
+          [
+            1415.6697,
+            0.0089,
+            610.9923,
+            42.53
+          ]
+        ]
       }
     }
   ]
