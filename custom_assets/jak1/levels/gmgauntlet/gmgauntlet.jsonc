@@ -15,5 +15,81 @@
   "sky": "none",
   "tpages": [],
   "ambients": [],
-  "actors": []
+  "actors": [
+    {
+      "trans": [
+        1395.5742,
+        1.9539,
+        607.5334
+      ],
+      "etype": "money",
+      "game_task": "(game-task none)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1395.5742,
+        1.9539,
+        607.5334,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-money-0"
+      }
+    },
+    {
+      "trans": [
+        1401.3557,
+        1.9539,
+        609.0561
+      ],
+      "etype": "money",
+      "game_task": "(game-task none)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1401.3557,
+        1.9539,
+        609.0561,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-money-1"
+      }
+    },
+    {
+      "trans": [
+        1407.1998,
+        1.9539,
+        604.9782
+      ],
+      "etype": "money",
+      "game_task": "(game-task none)",
+      "quat": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "vis_id": 0,
+      "bsphere": [
+        1407.1998,
+        1.9539,
+        604.9782,
+        10.0
+      ],
+      "lump": {
+        "name": "gmg-money-2"
+      }
+    }
+  ]
 }
