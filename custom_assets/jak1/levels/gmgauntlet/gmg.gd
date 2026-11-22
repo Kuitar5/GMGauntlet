@@ -1,9 +1,9 @@
 ;; DGO for gmgauntlet
 ("GMG.DGO"
  (
-  "rolling-race-ring.o"
+  "target-tube.o"
   "gmgauntlet-obs.o"
-  "race-ring-ag.go"
+  "eichar-tube+0-ag.go"
   "gmgauntlet.go"
   )
  )

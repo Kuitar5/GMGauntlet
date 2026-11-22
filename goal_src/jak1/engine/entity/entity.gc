@@ -891,6 +891,12 @@
      (entity-nav-login this) ;; I don't need to know what this does, all I know is that this is needed - the navmesh won't be okay without it.
      )))
 
+
+;; [OpenGOAL Tools] BEGIN custom-nav-mesh
+;; custom-nav system: the setup is in levels/level-tools/lt-nav-mesh.gc
+(define-extern lt-custom-nav-setup (function entity-actor none))
+;; [OpenGOAL Tools] END custom-nav-mesh
+
 (defmethod birth! ((this entity-actor))
   "Create a process for this entity and start it."
   ;; temp
@@ -905,6 +911,7 @@
   ;;   (return this)
   ;;   )
   ;;(birth-log "call to birth! on ~A~%" this)
+  (lt-custom-nav-setup this)
   (let* ((entity-type (-> this etype))
          (info (entity-info-lookup entity-type))
          (entity-process (get-process *default-dead-pool* entity-type (if info (-> info heap-size) #x4000))))

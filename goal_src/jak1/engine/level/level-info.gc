@@ -2488,9 +2488,9 @@
        '((new 'static 'continue-point
              :name "gmgauntlet-start"
              :level 'gmgauntlet
-             :trans (new 'static 'vector :x (meters 1397.0237) :y (meters 0.0000) :z (meters 596.2606) :w 1.0)
+             :trans (new 'static 'vector :x (meters 1399.9060) :y (meters 150.2429) :z (meters 592.2788) :w 1.0)
              :quat (new 'static 'quaternion :x 0.0 :y 0.0 :z 0.0 :w 1.0)
-             :camera-trans (new 'static 'vector :x (meters 1397.0237) :y (meters 4.0000) :z (meters 596.2606) :w 1.0)
+             :camera-trans (new 'static 'vector :x (meters 1399.9060) :y (meters 154.2429) :z (meters 592.2788) :w 1.0)
              :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
              :load-commands '()
              :vis-nick 'gmg
@@ -2503,7 +2503,7 @@
        :load-commands '()
        :alt-load-commands '()
        :bsp-mask #xffffffffffffffff
-       :bsphere (new 'static 'sphere :x 5722209.1 :y 8192.0 :z 2442283.4 :w 270336.0)
+       :bsphere (new 'static 'sphere :x 5734015.0 :y 623586.9 :z 2425974.0 :w 270336.0)
        :bottom-height (meters -20.0)
        :run-packages '()
        :wait-for-load #t))
