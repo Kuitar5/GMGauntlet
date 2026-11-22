@@ -1661,6 +1661,7 @@
 (build-custom-level "gmgauntlet")
 (custom-level-cgo "GMG.DGO" "gmgauntlet/gmg.gd")
 (goal-src "levels/gmgauntlet/gmgauntlet-obs.gc" "process-drawable")
+(goal-src "levels/gmgauntlet/gmgauntlet-nav.gc" "lt-nav-mesh")
 
 (build-custom-level "test-zone")
 ;; the DGO file

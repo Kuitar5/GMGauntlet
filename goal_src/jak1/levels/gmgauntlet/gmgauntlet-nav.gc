@@ -1,0 +1,50 @@
+;;-*-Lisp-*-
+(in-package goal)
+;; gmgauntlet-nav.gc -- nav-meshes of level gmgauntlet (written by OpenGOAL Level Tools).
+;; custom-nav system (The Forgotten Lands style): an actor picks a mesh with its
+;; 'custom-nav symbol lump; meshes join *custom-nav-list* when the level loads.
+
+(define *nav-gmgauntlet-circle*
+  (new 'static 'nav-mesh
+      :bounds (new 'static 'sphere :x (meters 1400.4563) :y (meters 99.7587) :z (meters 821.1523) :w (meters 80.9472))
+      :origin (new 'static 'vector :x (meters 1400.4563) :y (meters 99.7587) :z (meters 821.1523) :w 1.0)
+      :node-count 3
+      :nodes (new 'static 'inline-array nav-node 3
+        (new 'static 'nav-node :center-x (meters -0.0000) :center-y (meters 0.0000) :center-z (meters 7.2523) :type 0 :radius-x (meters 73.2301) :radius-y (meters 5.0000) :radius-z (meters 69.6949) :left-offset 48 :right-offset 96)
+        (new 'static 'nav-node :center-x (meters -25.0500) :center-y (meters 0.0000) :center-z (meters 7.2523) :type 1 :radius-x (meters 48.1800) :radius-y (meters 5.0000) :radius-z (meters 69.6949) :num-tris 5 :first-tris (new 'static 'array uint8 4 #x9 #x8 #x3 #x4) :last-tris (new 'static 'array uint8 4 #x2 #x0 #x0 #x0))
+        (new 'static 'nav-node :center-x (meters 13.7947) :center-y (meters 0.0000) :center-z (meters 7.2523) :type 1 :radius-x (meters 59.4354) :radius-y (meters 5.0000) :radius-z (meters 69.6949) :num-tris 5 :first-tris (new 'static 'array uint8 4 #x5 #x7 #x0 #x6) :last-tris (new 'static 'array uint8 4 #x1 #x0 #x0 #x0)))
+      :vertex-count 10
+      :vertex (new 'static 'inline-array nav-vertex 10
+        (new 'static 'nav-vertex :x (meters 35.8071) :y (meters 0.0000) :z (meters 11.6344) :w 1.0)
+        (new 'static 'nav-vertex :x (meters 22.1300) :y (meters 0.0000) :z (meters -30.4593) :w 1.0)
+        (new 'static 'nav-vertex :x (meters 44.6405) :y (meters 0.0000) :z (meters -61.4425) :w 1.0)
+        (new 'static 'nav-vertex :x (meters 72.2300) :y (meters 0.0000) :z (meters 23.4690) :w 1.0)
+        (new 'static 'nav-vertex :x (meters -35.8071) :y (meters 0.0000) :z (meters 11.6344) :w 1.0)
+        (new 'static 'nav-vertex :x (meters 0.0000) :y (meters 0.0000) :z (meters 37.6498) :w 1.0)
+        (new 'static 'nav-vertex :x (meters -0.0001) :y (meters 0.0000) :z (meters 75.9472) :w 1.0)
+        (new 'static 'nav-vertex :x (meters -72.2301) :y (meters 0.0000) :z (meters 23.4690) :w 1.0)
+        (new 'static 'nav-vertex :x (meters -22.1300) :y (meters 0.0000) :z (meters -30.4593) :w 1.0)
+        (new 'static 'nav-vertex :x (meters -44.6407) :y (meters 0.0000) :z (meters -61.4425) :w 1.0))
+      :poly-count 10
+      :poly (new 'static 'inline-array nav-poly 10
+        (new 'static 'nav-poly :id #x0 :vertex (new 'static 'array uint8 3 #x0 #x2 #x1) :adj-poly (new 'static 'array uint8 3 #x1 #x5 #xff))
+        (new 'static 'nav-poly :id #x1 :vertex (new 'static 'array uint8 3 #x0 #x3 #x2) :adj-poly (new 'static 'array uint8 3 #x6 #xff #x0))
+        (new 'static 'nav-poly :id #x2 :vertex (new 'static 'array uint8 3 #x4 #x6 #x5) :adj-poly (new 'static 'array uint8 3 #x3 #x7 #xff))
+        (new 'static 'nav-poly :id #x3 :vertex (new 'static 'array uint8 3 #x4 #x7 #x6) :adj-poly (new 'static 'array uint8 3 #x8 #xff #x2))
+        (new 'static 'nav-poly :id #x4 :vertex (new 'static 'array uint8 3 #x1 #x9 #x8) :adj-poly (new 'static 'array uint8 3 #x5 #x9 #xff))
+        (new 'static 'nav-poly :id #x5 :vertex (new 'static 'array uint8 3 #x1 #x2 #x9) :adj-poly (new 'static 'array uint8 3 #x0 #xff #x4))
+        (new 'static 'nav-poly :id #x6 :vertex (new 'static 'array uint8 3 #x5 #x3 #x0) :adj-poly (new 'static 'array uint8 3 #x7 #x1 #xff))
+        (new 'static 'nav-poly :id #x7 :vertex (new 'static 'array uint8 3 #x5 #x6 #x3) :adj-poly (new 'static 'array uint8 3 #x2 #xff #x6))
+        (new 'static 'nav-poly :id #x8 :vertex (new 'static 'array uint8 3 #x8 #x7 #x4) :adj-poly (new 'static 'array uint8 3 #x9 #x3 #xff))
+        (new 'static 'nav-poly :id #x9 :vertex (new 'static 'array uint8 3 #x8 #x9 #x7) :adj-poly (new 'static 'array uint8 3 #x4 #xff #x8)))
+      :route (new 'static 'inline-array vector4ub 7
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #x3 #x5 #xe5 #xa0))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #x80 #x35 #x50 #x80))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #xe #xa #x50 #x3))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #x5 #xe8 #xa0 #x5))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #x35 #xa0 #x80 #xe))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #x50 #x50 #x3 #xa))
+        (new 'static 'vector4ub :data (new 'static 'array uint8 4 #xe8 #x0 #x0 #x0)))))
+(unless (custom-nav<-name 'gmgauntlet-circle)
+  (set! *custom-nav-list* (cons '(gmgauntlet-circle *nav-gmgauntlet-circle*) *custom-nav-list*)))
+
