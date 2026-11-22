@@ -3,6 +3,7 @@
  (
   "cavecrystal-light.o"
   "maincave-obs.o"
+  "training-obs.o"
   "orbit-plat.o"
   "plat-flip.o"
   "sunken-obs.o"
@@ -10,6 +11,7 @@
   "gmgauntlet-nav.o"
   "gmgauntlet-obs.o"
   "cavetrapdoor-ag.go"
+  "jng-iris-door-ag.go"
   "orbit-plat-ag.go"
   "orbit-plat-bottom-ag.go"
   "plat-flip-ag.go"
