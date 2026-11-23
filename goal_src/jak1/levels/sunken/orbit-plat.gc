@@ -30,7 +30,7 @@
    (is-reset?    symbol)
    (reset-length float)
    (timeout      float)
-   (speed        float)
+   (speed        float) ;; GMG notes: added speed value
    (plat-status  uint64))
   (:methods
    (orbit-plat-method-27 (_type_) symbol)
@@ -250,6 +250,7 @@
   :post plat-post)
 
 (defmethod orbit-plat-method-28 ((this orbit-plat))
+  ;; GMG notes: Add -1.0 timeout if you want to make it never timeout
   (when (and (time-elapsed? (-> this state-time) (the int (* 300.0 (-> this timeout)))) (!= (-> this timeout) -1.0))
     (cond
       (*target*
@@ -359,7 +360,7 @@
             (ja-no-eval :num! (seek! 0.0))
             (label cfg-3)
             (dotimes (s4-0 2)
-              (get-rotate-point! s5-0 gp-0 (-> self basetrans) (the-as vector f30-0) (-> self rot-dir) (-> self speed))
+              (get-rotate-point! s5-0 gp-0 (-> self basetrans) (the-as vector f30-0) (-> self rot-dir) (-> self speed)) ;; GMG notes: Use custom speed
               (b! (not (nav-control-method-16 (-> self nav) s5-0)) cfg-6 :delay (empty-form))
               (set! (-> self basetrans quad) (-> s5-0 quad))
               (b! #t cfg-9 :delay (nop!))
@@ -514,7 +515,7 @@
   (set! (-> this other) (entity-actor-lookup arg0 'alt-actor 0))
   (let ((f0-7 (res-lump-float arg0 'scale :default 1.0))) (set-vector! (-> this root scale) f0-7 f0-7 f0-7 1.0))
   (set! (-> this timeout) (res-lump-float arg0 'timeout :default 10.0))
-  (set! (-> this speed) (res-lump-float arg0 'speed :default (meters 10)))
+  (set! (-> this speed) (res-lump-float arg0 'speed :default (meters 10))) ;; GMG notes: Added speed res-lump
   (set! (-> this rot-dir) 1.0)
   (set! (-> this reset-trans quad) (-> this basetrans quad))
   (set! (-> this is-reset?) #t)

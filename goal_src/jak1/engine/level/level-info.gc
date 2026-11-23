@@ -2479,18 +2479,18 @@
        :sound-banks '()
        :music-bank #f
        :ambient-sounds '()
-       :mood '*village1-mood*
-       :mood-func 'update-mood-village1
+       :mood '*citadel-mood*
+       :mood-func 'update-mood-citadel
        :ocean #f
        :sky #f
-       :sun-fade 1.0
+       :sun-fade 0.0
        :continues
        '((new 'static 'continue-point
              :name "gmgauntlet-start"
              :level 'gmgauntlet
-             :trans (new 'static 'vector :x (meters 1399.9060) :y (meters 150.2429) :z (meters 592.2788) :w 1.0)
+             :trans (new 'static 'vector :x (meters 1399.5933) :y (meters 150.2429) :z (meters 608.1876) :w 1.0)
              :quat (new 'static 'quaternion :x 0.0 :y 0.0 :z 0.0 :w 1.0)
-             :camera-trans (new 'static 'vector :x (meters 1399.9060) :y (meters 154.2429) :z (meters 592.2788) :w 1.0)
+             :camera-trans (new 'static 'vector :x (meters 1399.5933) :y (meters 154.2429) :z (meters 608.1876) :w 1.0)
              :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
              :load-commands '()
              :vis-nick 'gmg
@@ -2538,12 +2538,12 @@
              :lev1 #f
              :disp1 #f)
              (new 'static 'continue-point
-             :name "gmgauntlet-cp3"
+             :name "gmgauntlet-testCheckpoint"
              :level 'gmgauntlet
              :trans (new 'static 'vector :x (meters 1107.1047) :y (meters 311.7159) :z (meters 724.4738) :w 1.0)
              :quat (new 'static 'quaternion :x 0.0 :y 0.580061 :z 0.0 :w 0.814573)
-             :camera-trans (new 'static 'vector :x (meters 970.2823) :y (meters 171.4342) :z (meters 677.9003) :w 1.0)
-             :camera-rot (new 'static 'array float 9 0.327057 0.0 -0.945005 0.422618 0.894428 0.146264 0.845238 -0.447212 0.292529)
+             :camera-trans (new 'static 'vector :x (meters 1107.1047) :y (meters 315.7159) :z (meters 724.4738) :w 1.0)
+             :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
              :load-commands '()
              :vis-nick 'gmg
              :lev0 'gmgauntlet
@@ -2555,8 +2555,8 @@
        :load-commands '()
        :alt-load-commands '()
        :bsp-mask #xffffffffffffffff
-       :bsphere (new 'static 'sphere :x 4753169.1 :y 861689.9 :z 2851369.2 :w 1359267.9)
-       :bottom-height (meters -1.0)
+       :bsphere (new 'static 'sphere :x 4752913.0 :y 861689.9 :z 2864401.7 :w 1339194.5)
+       :bottom-height (meters 60.0)
        :run-packages '()
        :wait-for-load #t))
 

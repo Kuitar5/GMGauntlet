@@ -289,6 +289,7 @@
         (let ((f0-5 (analog-input (the-as int (-> self control cpad lefty)) 128.0 32.0 110.0 1.0)))
           (set! (-> self tube mod-y) f0-5)
           (tube-thrust f30-0 f0-5)))
+      ;; GMG notes: Added jump-pad event (need to fix double jump when neutral?)
       (if (and
             (= (-> self control ground-pat material) (pat-material sand))
             (= (-> self next-state name) 'target-tube))
@@ -334,7 +335,7 @@
            (('end-mode)
             (go target-jump (-> *TARGET-bank* tube-jump-height-min) (-> *TARGET-bank* tube-jump-height-max) (the-as surface #f)))
            (('touched) (send-event proc 'attack (-> block param 0) 'tube 0 0) #f)
-           (('jump-pad) (go target-tube-jump (meters 10.0) (meters 10.0)))
+           (('jump-pad) (go target-tube-jump (meters 10.0) (meters 10.0))) ;; GMG notes: Added jump-pad event 
            (('attack 'attack-or-shove 'attack-invinc)
             (target-attacked 'attack-or-shove
                              (the-as attack-info (-> block param 1))
@@ -681,6 +682,7 @@
       (set! (-> self pos) 0.2))
   :trans
     (behavior ()
+      ;; GMG notes: Lowered distance check to enter tube mode
       (if (and (and *target* (>= (meters 12.0) (vector-vector-distance (-> self root trans) (-> *target* control trans))))
                (and (< 0.0 (vector-dot (vector-! (new 'stack-no-clear 'vector) (-> *target* control trans) (-> self trans)) (-> self rot)))
                     (send-event *target* 'change-mode 'tube self)))
