@@ -12,6 +12,7 @@
   "gmgauntlet-obs.o"
   "cavetrapdoor-ag.go"
   "jng-iris-door-ag.go"
+  "orb-cache-top-ag.go"
   "orbit-plat-ag.go"
   "orbit-plat-bottom-ag.go"
   "plat-flip-ag.go"

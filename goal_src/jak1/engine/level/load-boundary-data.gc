@@ -1498,3 +1498,24 @@
                                         (checkpt "finalboss-start" #f))))
 
 (doarray (i *static-load-boundary-list*) (load-boundary-from-template (the-as (array object) i)))
+
+;; ===== OG CUSTOM BOUNDARIES: gmgauntlet =====
+(define *og-custom-lb-gmgauntlet*
+  (static-lb-list
+        (static-load-boundary :flags (player)
+                                :top 890275.3750 :bot 685475.3750
+                                :points (4415431.5000 3071580.0000 4492722.5000 2829208.7500)
+                                :fwd (checkpt "gmgauntlet-blue2" #f)
+                                :bwd (checkpt "gmgauntlet-blue2" #f))
+        (static-load-boundary :flags (player)
+                                :top 1477397.2500 :bot 1272597.2500
+                                :points (3878017.0000 2886138.5000 3955308.2500 2643767.2500)
+                                :fwd (checkpt "gmgauntlet-blue3" #f)
+                                :bwd (checkpt "gmgauntlet-blue3" #f))
+        (static-load-boundary :flags (player)
+                                :top 612439.4062 :bot 407639.4062
+                                :points (5097238.0000 3311208.2500 5174529.0000 3068837.0000)
+                                :fwd (checkpt "gmgauntlet-blue1" #f)
+                                :bwd (checkpt "gmgauntlet-blue1" #f))))
+(doarray (i *og-custom-lb-gmgauntlet*) (load-boundary-from-template (the-as (array object) i)))
+;; ===== END OG CUSTOM BOUNDARIES: gmgauntlet =====

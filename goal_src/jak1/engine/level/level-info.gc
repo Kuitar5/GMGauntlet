@@ -2503,8 +2503,8 @@
              :level 'gmgauntlet
              :trans (new 'static 'vector :x (meters 1253.0916) :y (meters 99.7587) :z (meters 772.3428) :w 1.0)
              :quat (new 'static 'quaternion :x -0.0 :y -0.792603 :z -0.0 :w 0.609737)
-             :camera-trans (new 'static 'vector :x (meters 1253.0916) :y (meters 103.7587) :z (meters 772.3428) :w 1.0)
-             :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
+             :camera-trans (new 'static 'vector :x (meters 1258.8909) :y (meters 102.7587) :z (meters 773.8814) :w 1.0)
+             :camera-rot (new 'static 'array float 9 -0.256441 0.0 0.96656 -0.432261 0.894426 -0.114685 -0.864516 -0.447216 -0.229367)
              :load-commands '()
              :vis-nick 'gmg
              :lev0 'gmgauntlet
@@ -2527,7 +2527,7 @@
              (new 'static 'continue-point
              :name "gmgauntlet-blue3"
              :level 'gmgauntlet
-             :trans (new 'static 'vector :x (meters 960.8612) :y (meters 311.7159) :z (meters 677.0078) :w 1.0)
+             :trans (new 'static 'vector :x (meters 964.9633) :y (meters 311.7159) :z (meters 675.0261) :w 1.0)
              :quat (new 'static 'quaternion :x 0.0 :y 0.609738 :z 0.0 :w 0.792603)
              :camera-trans (new 'static 'vector :x (meters 955.0618) :y (meters 314.7159) :z (meters 675.4692) :w 1.0)
              :camera-rot (new 'static 'array float 9 0.256439 0.0 -0.96656 0.432258 0.894428 0.114683 0.864518 -0.447213 0.229366)
@@ -2540,10 +2540,10 @@
              (new 'static 'continue-point
              :name "gmgauntlet-cp3"
              :level 'gmgauntlet
-             :trans (new 'static 'vector :x (meters 964.4830) :y (meters 168.4342) :z (meters 676.3617) :w 1.0)
-             :quat (new 'static 'quaternion :x -0.0 :y -0.792603 :z -0.0 :w 0.609737)
+             :trans (new 'static 'vector :x (meters 1107.1047) :y (meters 311.7159) :z (meters 724.4738) :w 1.0)
+             :quat (new 'static 'quaternion :x 0.0 :y 0.580061 :z 0.0 :w 0.814573)
              :camera-trans (new 'static 'vector :x (meters 970.2823) :y (meters 171.4342) :z (meters 677.9003) :w 1.0)
-             :camera-rot (new 'static 'array float 9 -0.256438 0.0 0.966561 -0.432258 0.894428 -0.114682 -0.864519 -0.447212 -0.229365)
+             :camera-rot (new 'static 'array float 9 0.327057 0.0 -0.945005 0.422618 0.894428 0.146264 0.845238 -0.447212 0.292529)
              :load-commands '()
              :vis-nick 'gmg
              :lev0 'gmgauntlet
@@ -2555,7 +2555,7 @@
        :load-commands '()
        :alt-load-commands '()
        :bsp-mask #xffffffffffffffff
-       :bsphere (new 'static 'sphere :x 4632973.0 :y 744313.6 :z 2813579.2 :w 1436516.7)
+       :bsphere (new 'static 'sphere :x 4753169.1 :y 861689.9 :z 2851369.2 :w 1359267.9)
        :bottom-height (meters -1.0)
        :run-packages '()
        :wait-for-load #t))
